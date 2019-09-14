@@ -1,0 +1,21 @@
+<resources>
+    <string name="app_name">Weather</string>
+
+    //Exception messages
+    <string name="exception_message_generic">There was an application error</string>
+    <string name="exception_message_no_connection">There is no internet connection</string>
+
+    //WeatherInformationUIModelListActivity
+    <string name="datetime">DateTime</string>
+    <string name="temperature">Temperature</string>
+    <string name="min_temperature">MinTemperature</string>
+    <string name="max_temperature">MaxTemperature</string>
+    <string name="cloudiness">Cloudiness</string>
+    <string name="humidity">Humidity</string>
+    <string name="pressure">Pressure</string>
+    <string name="rain_volume">RainVolume</string>
+    <string name="snow_volume">SnowVolume</string>
+    <string name="wind_speed">WindSpeed</string>
+    <string name="wind_direction">WindDirection</string>
+
+</resources>
