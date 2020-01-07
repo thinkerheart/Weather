@@ -4,6 +4,12 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools">
 
+    <data>
+        <variable
+            name="weatherInformationUIModel"
+            type="com.thinkzi.weather.ui.model.WeatherInformationUIModel" />
+    </data>
+
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -16,7 +22,8 @@
             android:layout_height="wrap_content"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+            app:layout_constraintTop_toTopOf="parent"
+            android:text='@{@string/datetime + " : " + weatherInformationUIModel.dateTime.toString("HH:mm:ss dd/MM/yyyy")}'/>
 
         <TextView
             android:id="@+id/lblTemperature"
@@ -25,7 +32,8 @@
             android:layout_marginTop="8dp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/lblDateTime" />
+            app:layout_constraintTop_toBottomOf="@+id/lblDateTime"
+            android:text='@{@string/temperature + " : " + String.valueOf(weatherInformationUIModel.temperature.temperature)}'/>
 
         <TextView
             android:id="@+id/lblMinTemperature"
@@ -34,7 +42,8 @@
             android:layout_marginTop="8dp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/lblTemperature" />
+            app:layout_constraintTop_toBottomOf="@+id/lblTemperature"
+            android:text='@{@string/min_temperature + " : " + String.valueOf(weatherInformationUIModel.temperature.minTemperature)}'/>
 
         <TextView
             android:id="@+id/lblMaxTemperature"
@@ -43,7 +52,8 @@
             android:layout_marginTop="8dp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/lblMinTemperature" />
+            app:layout_constraintTop_toBottomOf="@+id/lblMinTemperature"
+            android:text='@{@string/max_temperature + " : " + String.valueOf(weatherInformationUIModel.temperature.maxTemperature)}'/>
 
         <TextView
             android:id="@+id/lblWindSpeed"
@@ -52,7 +62,8 @@
             android:layout_marginTop="8dp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/lblMaxTemperature" />
+            app:layout_constraintTop_toBottomOf="@+id/lblMaxTemperature"
+            android:text='@{@string/wind_speed + " : " + String.valueOf(weatherInformationUIModel.wind.speed)}'/>
 
         <TextView
             android:id="@+id/lblWindDirection"
@@ -61,7 +72,8 @@
             android:layout_marginTop="8dp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/lblWindSpeed" />
+            app:layout_constraintTop_toBottomOf="@+id/lblWindSpeed"
+            android:text='@{@string/wind_direction + " : " + String.valueOf(weatherInformationUIModel.wind.direction)}'/>
 
         <TextView
             android:id="@+id/lblCloudiness"
@@ -70,7 +82,8 @@
             android:layout_marginTop="8dp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/lblWindDirection" />
+            app:layout_constraintTop_toBottomOf="@+id/lblWindDirection"
+            android:text='@{@string/cloudiness + " : " + String.valueOf(weatherInformationUIModel.cloud.cloudiness)}'/>
 
         <TextView
             android:id="@+id/lblSnowVolume"
@@ -79,7 +92,8 @@
             android:layout_marginTop="8dp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/lblCloudiness" />
+            app:layout_constraintTop_toBottomOf="@+id/lblCloudiness"
+            android:text='@{@string/snow_volume + " : " + String.valueOf(weatherInformationUIModel.snow.snowVolume)}'/>
 
         <TextView
             android:id="@+id/lblRainVolume"
@@ -88,7 +102,8 @@
             android:layout_marginTop="8dp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/lblSnowVolume" />
+            app:layout_constraintTop_toBottomOf="@+id/lblSnowVolume"
+            android:text='@{@string/rain_volume + " : " + String.valueOf(weatherInformationUIModel.rain.rainVolume)}'/>
 
         <TextView
             android:id="@+id/lblHumidity"
@@ -97,7 +112,8 @@
             android:layout_marginTop="8dp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/lblRainVolume" />
+            app:layout_constraintTop_toBottomOf="@+id/lblRainVolume"
+            android:text='@{@string/humidity + " : " + String.valueOf(weatherInformationUIModel.humidity.humidity)}'/>
 
         <TextView
             android:id="@+id/lblPressure"
@@ -108,7 +124,8 @@
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/lblHumidity" />
+            app:layout_constraintTop_toBottomOf="@+id/lblHumidity"
+            android:text='@{@string/pressure + " : " + String.valueOf(weatherInformationUIModel.pressure.pressure)}'/>
     </androidx.constraintlayout.widget.ConstraintLayout>
 
 </layout>

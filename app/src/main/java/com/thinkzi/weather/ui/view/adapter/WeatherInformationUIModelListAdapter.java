@@ -56,6 +56,7 @@ public class WeatherInformationUIModelListAdapter extends RecyclerView.Adapter<W
         }
 
         void bind(final WeatherInformationUIModel _weatherInformationUIModel) {
+            /*
             _itemWeatherInformationBinding.lblDateTime.setText(_context.getString(R.string.datetime) + " : " + _weatherInformationUIModel.getDateTime().toString("HH:mm:ss dd/MM/yyyy"));
             _itemWeatherInformationBinding.lblTemperature.setText(_context.getString(R.string.temperature) + " : " + String.valueOf(_weatherInformationUIModel.getTemperature().getTemperature()));
             _itemWeatherInformationBinding.lblMinTemperature.setText(_context.getString(R.string.min_temperature) + " : " + String.valueOf(_weatherInformationUIModel.getTemperature().getMinTemperature()));
@@ -67,6 +68,9 @@ public class WeatherInformationUIModelListAdapter extends RecyclerView.Adapter<W
             _itemWeatherInformationBinding.lblSnowVolume.setText(_context.getString(R.string.snow_volume) + " : " + String.valueOf(_weatherInformationUIModel.getSnow().getSnowVolume()));
             _itemWeatherInformationBinding.lblWindSpeed.setText(_context.getString(R.string.wind_speed) + " : " + String.valueOf(_weatherInformationUIModel.getWind().getSpeed()));
             _itemWeatherInformationBinding.lblWindDirection.setText(_context.getString(R.string.wind_direction) + " : " + String.valueOf(_weatherInformationUIModel.getWind().getDirection()));
+            */
+
+            _itemWeatherInformationBinding.setWeatherInformationUIModel(_weatherInformationUIModel);
 
             _itemWeatherInformationBinding.executePendingBindings();
 

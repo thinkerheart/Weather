@@ -4,6 +4,7 @@ import com.thinkzi.weather.data.exception.NetworkConnectionException;
 import com.thinkzi.weather.data.mapper.WeatherInCityDataModelMapper;
 import com.thinkzi.weather.data.model.Result;
 import com.thinkzi.weather.data.net.APIConnection;
+import com.thinkzi.weather.data.repository.datasource.ResultDataStoreFactory;
 import com.thinkzi.weather.domain.entity.WeatherInCity;
 import com.thinkzi.weather.domain.repository.IWeatherRepository;
 
@@ -18,16 +19,18 @@ import io.reactivex.functions.Function;
 @Singleton
 public class WeatherRepository implements IWeatherRepository {
 
+    private final ResultDataStoreFactory _resultDataStoreFactory;
     private final WeatherInCityDataModelMapper _weatherInCityDataModelMapper;
 
     @Inject
-    public WeatherRepository(WeatherInCityDataModelMapper _weatherInCityDataModelMapper) {
+    public WeatherRepository(ResultDataStoreFactory _resultDataStoreFactory, WeatherInCityDataModelMapper _weatherInCityDataModelMapper) {
+        this._resultDataStoreFactory = _resultDataStoreFactory;
         this._weatherInCityDataModelMapper = _weatherInCityDataModelMapper;
     }
 
     @Override
     public Single<WeatherInCity> getWeatherForFiveDaysInACity(int _cityId, String _appid) {
-        return APIConnection.getInstance().getWeatherForFiveDaysInACity(_cityId, _appid).flatMap(new Function<Result, SingleSource<WeatherInCity>>() {
+        return this._resultDataStoreFactory.createResultDataStore().getWeatherForFiveDaysInACity(_cityId, _appid).flatMap(new Function<Result, SingleSource<WeatherInCity>>() {
             @Override
             public SingleSource<WeatherInCity> apply(final Result result) throws Exception {
                 return Single.create(new SingleOnSubscribe<WeatherInCity>() {
